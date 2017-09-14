@@ -1,6 +1,6 @@
 "use strict";
 const anyMatch = require("./");
-const expect = require("chai").expect;
+const {expect} = require("chai");
 
 
 
@@ -56,5 +56,9 @@ it("supports a mix of numbers, strings and regular expressions", function()
 
 it("rejects non-array haystacks", function()
 {
-	expect(() => anyMatch("a","a")).to.throw(Error);
+	expect(() => anyMatch("a","a")).to.throw();
+	expect(() => anyMatch("a",true)).to.throw();
+	expect(() => anyMatch("a",1)).to.throw();
+	expect(() => anyMatch("a",{})).to.throw();
+	expect(() => anyMatch("a",function(){})).to.throw();
 });

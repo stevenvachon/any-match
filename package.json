@@ -1,7 +1,7 @@
 {
   "name": "any-match",
-  "description": "Match a value against an Array of strings/numbers/regexes.",
-  "version": "1.0.1",
+  "description": "Determine if a single match exists with an array of strings/numbers/regexes.",
+  "version": "2.0.0",
   "license": "MIT",
   "author": "Steven Vachon <contact@svachon.com> (https://www.svachon.com/)",
   "repository": "stevenvachon/any-match",
@@ -9,14 +9,14 @@
     "is-regexp": "^1.0.0"
   },
   "devDependencies": {
-    "chai": "^4.0.0",
-    "mocha": "^3.4.2"
+    "chai": "^4.1.2",
+    "mocha": "^4.1.0"
   },
   "engines": {
-    "node": ">= 4"
+    "node": ">= 6"
   },
   "scripts": {
-    "test": "mocha test --reporter=spec --check-leaks --bail"
+    "test": "mocha test --check-leaks --bail"
   },
   "files": [
     "index.js"

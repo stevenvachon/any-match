@@ -1,11 +1,11 @@
-# any-match [![NPM Version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][david-image]][david-url]
+# any-match [![NPM Version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Monitor][greenkeeper-image]][greenkeeper-url]
 
-> Match a value against an Array of strings/numbers/regexes.
+> Determine if a single match exists with an array of strings/numbers/regexes.
 
 
 ## Installation
 
-[Node.js](http://nodejs.org/) `>= 4` is required. To install, type this at the command line:
+[Node.js](http://nodejs.org/) `>= 6` is required. To install, type this at the command line:
 ```shell
 npm install any-match
 ```
@@ -26,8 +26,8 @@ anyMatch('abc', [/^abc$/]);  //-> true
 
 
 [npm-image]: https://img.shields.io/npm/v/any-match.svg
-[npm-url]: https://npmjs.org/package/any-match
+[npm-url]: https://npmjs.com/package/any-match
 [travis-image]: https://img.shields.io/travis/stevenvachon/any-match.svg
 [travis-url]: https://travis-ci.org/stevenvachon/any-match
-[david-image]: https://img.shields.io/david/stevenvachon/any-match.svg
-[david-url]: https://david-dm.org/stevenvachon/any-match
+[greenkeeper-image]: https://badges.greenkeeper.io/stevenvachon/any-match.svg
+[greenkeeper-url]: https://greenkeeper.io/
