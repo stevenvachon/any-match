@@ -3,10 +3,10 @@ const isRegExp = require("is-regexp");
 
 
 
-const anyMatch = (needle, haystack) =>
+const anyMatch = (needle, haystack) => haystack.some(strand =>
 {
-	return haystack.some(strand => isRegExp(strand) ? strand.test(needle) : strand === needle);
-};
+	return isRegExp(strand) ? strand.test(needle) : strand === needle;
+});
 
 
 
