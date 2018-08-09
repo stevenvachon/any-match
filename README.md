@@ -16,10 +16,10 @@ npm install any-match
 ```js
 const anyMatch = require('any-match');
 
-anyMatch('a', ['a','b']);  //-> true
-anyMatch('c', ['a','b']);  //-> false
+anyMatch('a', ['a', 'b']);  //-> true
+anyMatch('c', ['a', 'b']);  //-> false
 
-anyMatch(1, [0,1]);  //-> true
+anyMatch(1, [0, 1]);  //-> true
 
 anyMatch('abc', [/^abc$/]);  //-> true
 ```

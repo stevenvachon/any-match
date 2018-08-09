@@ -1,12 +1,13 @@
 "use strict";
 const anyMatch = require("./");
 const {expect} = require("chai");
+const {it} = require("mocha");
 
 
 
-it("supports numbers", function()
+it("supports numbers", () =>
 {
-	const haystack = [0,1];
+	const haystack = [0, 1];
 
 	expect( anyMatch(0,haystack) ).to.be.true;
 	expect( anyMatch(1,haystack) ).to.be.true;
@@ -15,9 +16,9 @@ it("supports numbers", function()
 
 
 
-it("supports strings", function()
+it("supports strings", () =>
 {
-	const haystack = ["a","b"];
+	const haystack = ["a", "b"];
 
 	expect( anyMatch("a",haystack) ).to.be.true;
 	expect( anyMatch("b",haystack) ).to.be.true;
@@ -26,23 +27,9 @@ it("supports strings", function()
 
 
 
-it("supports regular expressions", function()
+it("supports regular expressions", () =>
 {
-	const haystack = [/a/,/b/,/123/];
-
-	expect( anyMatch("a",haystack) ).to.be.true;
-	expect( anyMatch("b",haystack) ).to.be.true;
-	expect( anyMatch(123,haystack) ).to.be.true;
-
-	expect( anyMatch("c",haystack) ).to.be.false;
-	expect( anyMatch(124,haystack) ).to.be.false;
-});
-
-
-
-it("supports a mix of numbers, strings and regular expressions", function()
-{
-	const haystack = ["a",/b/,123];
+	const haystack = [/a/, /b/, /123/];
 
 	expect( anyMatch("a",haystack) ).to.be.true;
 	expect( anyMatch("b",haystack) ).to.be.true;
@@ -54,7 +41,21 @@ it("supports a mix of numbers, strings and regular expressions", function()
 
 
 
-it("rejects non-array haystacks", function()
+it("supports a mix of numbers, strings and regular expressions", () =>
+{
+	const haystack = ["a", /b/, 123];
+
+	expect( anyMatch("a",haystack) ).to.be.true;
+	expect( anyMatch("b",haystack) ).to.be.true;
+	expect( anyMatch(123,haystack) ).to.be.true;
+
+	expect( anyMatch("c",haystack) ).to.be.false;
+	expect( anyMatch(124,haystack) ).to.be.false;
+});
+
+
+
+it("rejects non-array haystacks", () =>
 {
 	expect(() => anyMatch("a","a")).to.throw();
 	expect(() => anyMatch("a",true)).to.throw();

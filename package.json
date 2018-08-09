@@ -1,25 +1,32 @@
 {
   "name": "any-match",
   "description": "Determine if a single match exists with an array of strings/numbers/regexes.",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "license": "MIT",
-  "author": "Steven Vachon <contact@svachon.com> (https://www.svachon.com/)",
-  "repository": "stevenvachon/any-match",
+  "author": "Steven Vachon <contact@svachon.com> (https://svachon.com)",
+  "repository": "github:stevenvachon/any-match",
+  "browser": "index-es5.js",
   "dependencies": {
-    "is-regexp": "^1.0.0"
+    "is-regexp": "^2.1.0"
   },
   "devDependencies": {
-    "chai": "^4.1.2",
-    "mocha": "^4.1.0"
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4"
   },
   "engines": {
     "node": ">= 6"
   },
   "scripts": {
-    "test": "mocha test --check-leaks --bail"
+    "prepublishOnly": "babel index.js --out-file=index-es5.js --presets=@babel/env --source-maps",
+    "test": "mocha test.js --check-leaks --bail"
   },
   "files": [
-    "index.js"
+    "index.js",
+    "index-es5.js",
+    "index-es5.js.map"
   ],
   "keywords": [
     "match",
