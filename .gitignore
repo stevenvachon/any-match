@@ -1,4 +1,4 @@
-index-es5.js
-index-es5.js.map
+coverage/
 node_modules/
+index.d.ts
 package-lock.json

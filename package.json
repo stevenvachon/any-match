@@ -1,32 +1,36 @@
 {
   "name": "any-match",
-  "description": "Determine if a single match exists with an array of strings/numbers/regexes.",
-  "version": "2.0.1",
+  "description": "Determine if a single match exists with an array of strings, numbers, and/or RegExps.",
+  "version": "3.0.0",
   "license": "MIT",
   "author": "Steven Vachon <contact@svachon.com> (https://svachon.com)",
   "repository": "github:stevenvachon/any-match",
-  "browser": "index-es5.js",
+  "type": "module",
   "dependencies": {
-    "is-regexp": "^2.1.0"
+    "is-regexp": "^3.1.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.4.3",
-    "@babel/core": "^7.4.3",
-    "@babel/preset-env": "^7.4.3",
-    "chai": "^4.2.0",
-    "mocha": "^6.1.4"
+    "@vitest/coverage-v8": "^4.1.10",
+    "cspell": "^10.0.1",
+    "prettier": "^3.9.6",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.10"
   },
   "engines": {
-    "node": ">= 6"
+    "node": ">= 22"
   },
   "scripts": {
-    "prepublishOnly": "babel index.js --out-file=index-es5.js --presets=@babel/env --source-maps",
-    "test": "mocha test.js --check-leaks --bail"
+    "build": "npm run build:spellcheck && npm run build:lint && npm run build:compile",
+    "build:compile": "tsc",
+    "build:lint": "prettier --check '*.{js,json,md}'",
+    "build:spellcheck": "cspell '*.{js,json,md}' --no-progress",
+    "prepublishOnly": "npm run build && npm test",
+    "test": "npm run test:watch -- --reporter=verbose --run",
+    "test:watch": "vitest dev --coverage --coverage.reporter=html --coverage.reporter=lcov --coverage.reporter=text"
   },
   "files": [
-    "index.js",
-    "index-es5.js",
-    "index-es5.js.map"
+    "index.d.ts",
+    "index.js"
   ],
   "keywords": [
     "match",

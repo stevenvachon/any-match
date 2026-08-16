@@ -1,13 +1,11 @@
-"use strict";
-const isRegExp = require("is-regexp");
+import isRegExp from 'is-regexp';
 
-
-
-const anyMatch = (needle, haystack) => haystack.some(strand =>
-{
-	return isRegExp(strand) ? strand.test(needle) : strand === needle;
-});
-
-
-
-module.exports = anyMatch;
+/**
+ * Determine if a single match exists with an array of strings, numbers, and/or `RegExp`s.
+ * @param {number | string} needle The value to find in `haystack`.
+ * @param {(number | string | RegExp)[]} haystack The values to search.
+ */
+export default (needle, haystack) =>
+  haystack.some(strand =>
+    isRegExp(strand) && typeof needle === 'string' ? strand.test(needle) : strand === needle
+  );
