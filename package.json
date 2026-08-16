@@ -1,7 +1,7 @@
 {
   "name": "any-match",
   "description": "Determine if a single match exists with an array of strings, numbers, and/or RegExps.",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "license": "MIT",
   "author": "Steven Vachon <contact@svachon.com> (https://svachon.com)",
   "repository": "github:stevenvachon/any-match",
